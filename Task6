@@ -1,0 +1,61 @@
+using System;
+class Car{
+    private string name;
+    private int maxSpeed;
+    
+    public Car(string name, int maxSpeed){
+        this.name = name;
+        this.maxSpeed = maxSpeed;
+    }
+    
+    public string Name{
+        get {
+            return name;
+        }
+        set {
+            name = value;
+        }
+    }
+    
+        public int MaxSpeed{
+            get {
+                return maxSpeed;
+            }
+            set {
+                if(value > 0){
+                    maxSpeed = value;
+                }
+                else{
+                    Console.WriteLine("Максимальна швидкіть не може бути меньше нуля");
+                }
+            }
+        }
+    }
+class Program{
+    static void Main(string[] args){
+        Console.WriteLine("Введіть назву першого авто");
+        string car1Name = Console.ReadLine();
+        
+        Console.WriteLine("Введіть максимальну швидкість першого авто");
+        int car1MaxSpeed = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine("Введіть назву другого авто");
+        string car2Name = Console.ReadLine();
+        
+        Console.WriteLine("Введіть максимальну швидкість другого авто");
+        int car2MaxSpeed = int.Parse(Console.ReadLine());
+        
+        Car car1 = new Car(car1Name, car1MaxSpeed);
+        Car car2 = new Car(car2Name, car2MaxSpeed);
+        
+        if(car1.MaxSpeed > car2.MaxSpeed){
+            Console.WriteLine($"Найбільшу швидкість має автомобіль '{car1.Name}'");
+        }
+        else if (car1.MaxSpeed < car2.MaxSpeed){
+            Console.WriteLine($"Найбільшу швидкість має автомобіль '{car2.Name}'");
+        }
+        else{
+            Console.WriteLine($"У авто '{car1.Name}' та '{car2.Name}' однакова швидкість");
+        }
+    }
+}
