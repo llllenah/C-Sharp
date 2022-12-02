@@ -59,7 +59,7 @@ class Vehicle: Automobile{
                 (cars[1] as Automobile).AboutMe();
             }
             else {
-                Console.WriteLine("У авто однакова максимаьна швидкість");
+                Console.WriteLine("У авто однакова максимальна швидкість");
                 foreach(Automobile auto in cars){
                     Console.WriteLine();
                     auto.AboutMe();
