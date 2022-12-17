@@ -1,0 +1,16 @@
+using System;
+class Program {
+  static void Main() {
+    Console.WriteLine("Введи довжину");
+    int n = int.Parse(Console.ReadLine());
+    int[] k = new int[n+1];
+    k[1] = 2;
+    if (n >= 2){
+        k[2] = 3;
+        for(int i = 3; i <=n; i++){
+            k[i] = k[i - 1] + k[i - 2];
+        }
+    }
+    Console.WriteLine($"Кількість різних способів дорівнює {k[n]}");
+  }
+}
