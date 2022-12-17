@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+class Car{
+    private string name;
+    private int maxSpeed;
+    
+    public string Name {get; set;}
+    
+    public Car(string name, int maxSpeed){
+        Name = name;
+        MaxSpeed = maxSpeed;
+    }
+        public int MaxSpeed{
+            get {
+                return maxSpeed;
+            }
+            set {
+                if(value > 0){
+                    maxSpeed = value;
+                }
+                else{
+                    Console.WriteLine("Максимальна швидкіть не може бути меньше нуля");
+                }
+            }
+        }
+    }
+class Program{
+    static void Main(string[] args){
+        Console.WriteLine("Введіть назву першого авто");
+        string car1Name = Console.ReadLine();
+        
+        Console.WriteLine("Введіть максимальну швидкість першого авто");
+        int car1MaxSpeed = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine("Введіть назву другого авто");
+        string car2Name = Console.ReadLine();
+        
+        Console.WriteLine("Введіть максимальну швидкість другого авто");
+        int car2MaxSpeed = int.Parse(Console.ReadLine());
+        
+        string carWithHighestSpeed = car1Name;
+        int highestSpeed = car1MaxSpeed;
+        
+        List<Car> cars = new List<Car>();
+        cars.Add(new Car(car1Name, car1MaxSpeed));
+        cars.Add(new Car(car2Name, car2MaxSpeed));
+        
+        foreach(var car in cars){
+            Console.WriteLine($"Name: {car.Name}. Max speed: {car.MaxSpeed}");
+            if (car.MaxSpeed > highesteed){
+                highestSpeed = car.MaxSpeed;
+                carWithHighestSpeed = car.Name;
+            }
+            else if((car.MaxSpeed == highestSpeed) && (carWithHighestSpeed != car.Name)){
+                carWithHighestSpeed = carWithHighestSpeed + ", " + car.Name;
+            }
+        }
+        Console.WriteLine($"Car(s) with the highest speed: '{carWithHighestSpeed}'");
+}}
